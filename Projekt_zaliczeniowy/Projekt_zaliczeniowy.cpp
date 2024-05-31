@@ -181,6 +181,10 @@ void removeOneTask(vector<string>& taskListDone)
     cout << "Which task do you want to remove?: ";
     int choice;
     cin >> choice;
+    if (choice < 1 || choice > taskListDone.size()) {
+        cout << "Invalid task number.\n";
+        return;
+    }
     try {
         taskListDone.erase(taskListDone.begin() + choice - 1);
         clear();
@@ -204,7 +208,7 @@ void completedMenu(vector<string>& taskList, vector<string>& taskListDone)
         cout << "Completed Menu \n\n";
         cout << "1 - Move completed task to ToDoList.\n";
         cout << "2 - Remove one completed task.\n";
-        cout << "3 - Remove whole copleted list\n";
+        cout << "3 - Remove whole completed list\n";
         cout << "4 - Clear console\n";
         cout << "5 - Go back\n";
         cin >> choice;
