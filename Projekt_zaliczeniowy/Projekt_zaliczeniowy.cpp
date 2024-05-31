@@ -39,6 +39,10 @@ void addTask(vector<string>& taskList)
             cout << "Task can't be empty.";
             return;
         }
+        if (task[0] >= 'a' && task[0] <= 'z')
+        {
+            task[0] = task[0] - 32;
+        }
         taskList.push_back(task);
         clear();
     }
