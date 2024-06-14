@@ -16,9 +16,10 @@ void clear() {
 }
 void toDoList(vector<string>& taskList)
 {
+    const int listSize = taskList.size();
     if(!taskList.empty())
         cout << "To do list:\n";
-    for (int i = 0; i < taskList.size(); i++)
+    for (int i = 0; i < listSize; i++)
     {
         cout << to_string(i + 1) + ". " + taskList[i] + "\n";
     }
@@ -75,6 +76,7 @@ void completeTask(vector<string>& taskList, vector<string>& taskListDone) {
 
 void uploadList(vector<string>& taskList)
 {
+    const int listSize = taskList.size();
     ofstream file("ToDoList.txt");
     if (!file.is_open())
     {
@@ -82,7 +84,7 @@ void uploadList(vector<string>& taskList)
     }
     else 
     {
-        for (int i = 0; i < taskList.size(); i++)
+        for (int i = 0; i < listSize; i++)
         {
             file << to_string(i + 1) + ". " + taskList[i] + "\n";
         }
@@ -150,7 +152,8 @@ void toDoListDone(vector<string>& taskListDone)
 {
     if (!taskListDone.empty())
         cout << "Complete tasks:\n";
-    for (int i = 0; i < taskListDone.size(); i++)
+    const int listSize = taskListDone.size();
+    for (int i = 0; i < listSize; i++)
     {
         cout << to_string(i + 1) + ". " + taskListDone[i] + "\n";
     }
@@ -238,8 +241,9 @@ void completedMenu(vector<string>& taskList, vector<string>& taskListDone)
 }
 
 void bubbleSort(vector<int>& myNumbers) {
-    for (int i = 0; i < myNumbers.size() - 1; i++) {
-        for (int j = 0; j < myNumbers.size() - i - 1; j++) {
+    const int numberSize = myNumbers.size();
+    for (int i = 0; i < numberSize - 1; i++) {
+        for (int j = 0; j < numberSize - i - 1; j++) {
             if (myNumbers[j] > myNumbers[j + 1]) {
                 swap(myNumbers[j], myNumbers[j + 1]);
             }
@@ -248,9 +252,10 @@ void bubbleSort(vector<int>& myNumbers) {
 }
 
 void selectionSort(vector<int>& myNumbers) {
-    for (int i = 0; i < myNumbers.size() - 1; i++) {
+    const int numberSize = myNumbers.size();
+    for (int i = 0; i < numberSize - 1; i++) {
         int minIdx = i;
-        for (int j = i + 1; j < myNumbers.size(); j++) {
+        for (int j = i + 1; j < numberSize; j++) {
             if (myNumbers[j] < myNumbers[minIdx]) {
                 minIdx = j;
             }
